@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useFetch } from "../../hooks/useFetch";
+import { useDebounce } from "../../hooks/useDebounce";
 
 interface Book {
   key: string;
@@ -9,6 +10,7 @@ interface Book {
 
 const BookSearch: React.FC = () => {
   const [query, setQuery] = useState<string>("");
+  const debouncedQuery = useDebounce(query, 500);
   const {
     data: results,
     loading,
@@ -16,18 +18,18 @@ const BookSearch: React.FC = () => {
     fetchData,
   } = useFetch<{ docs: Book[] }>();
 
-  const handleSearch = async (event: React.FormEvent) => {
-    event.preventDefault(); // Prevents the form from reloading the page
-    if (!query) return;
-    const url = `https://openlibrary.org/search.json?q=${query}`;
+ 
 
+  useEffect(() => {
+     const url = `https://openlibrary.org/search.json?q=${debouncedQuery}`;
+    if (!debouncedQuery) return;
     fetchData(url);
-  };
+  },[debouncedQuery]);
 
   return (
     <div className="container mx-auto p-4 max-w-2xl">
       <h1 className="text-3xl font-bold text-center mb-6">Book Search</h1>
-      <form onSubmit={handleSearch} className="flex gap-2 mb-6">
+     
         <input
           type="text"
           value={query}
@@ -35,25 +37,21 @@ const BookSearch: React.FC = () => {
           placeholder="Search for a book..."
           className="flex-grow p-2 border border-gray-300 rounded-md"
         />
-        <button
-          type="submit"
-          disabled={loading}
-          className="bg-blue-600 text-white px-4 py-2 rounded-md disabled:bg-gray-400"
-        >
-          {loading ? "Searching..." : "Search"}
-        </button>
-      </form>
+        
+          {loading && <span className="p-2">Searching...</span>}
+       
 
       {/* Conditional Rendering */}
       {error && <div className="text-red-600 text-center">Error: {error}</div>}
 
       <ul className="space-y-4">
-        {results && results.docs.map((book) => (
-          <li key={book.key} className="bg-gray-50 p-4 rounded-md shadow-sm">
-            <h3 className="text-xl font-semibold">{book.title}</h3>
-            <p className="text-gray-600">{book.author_name?.join(", ")}</p>
-          </li>
-        ))}
+        {results &&
+          results.docs.map((book) => (
+            <li key={book.key} className="bg-gray-50 p-4 rounded-md shadow-sm">
+              <h3 className="text-xl font-semibold">{book.title}</h3>
+              <p className="text-gray-600">{book.author_name?.join(", ")}</p>
+            </li>
+          ))}
       </ul>
     </div>
   );
