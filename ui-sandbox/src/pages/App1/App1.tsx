@@ -50,7 +50,7 @@ const BdlVariablesList: React.FC = () => {
     <div className="container mx-auto p-4">
       <h1 className="text-2xl font-bold mb-4">Variables from BDL API (GUS)</h1>
       <ul className="list-disc list-inside">
-        {variables.map((variable) => (
+        {variables?.map((variable) => (
           <li key={variable.id} className="mb-2 p-2 bg-gray-100 rounded">
             <strong className="text-blue-700">{variable.name}</strong>
             <span className="text-sm text-gray-600 ml-2">
