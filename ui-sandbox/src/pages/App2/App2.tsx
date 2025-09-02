@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useFetch } from "../../hooks/useFetch";
 
 interface Book {
   key: string;
@@ -8,37 +9,19 @@ interface Book {
 
 const BookSearch: React.FC = () => {
   const [query, setQuery] = useState<string>("");
-  const [results, setResults] = useState<Book[]>([]);
-  const [loading, setLoading] = useState<boolean>(false);
-  const [error, setError] = useState<string | null>(null);
+  const {
+    data: results,
+    loading,
+    error,
+    fetchData,
+  } = useFetch<{ docs: Book[] }>();
 
   const handleSearch = async (event: React.FormEvent) => {
     event.preventDefault(); // Prevents the form from reloading the page
-    setLoading(true);
-    setError(null);
-    setResults([]);
-    const fetchData = async () => {
-      try {
-        const response = await fetch(
-          `https://openlibrary.org/search.json?q=${query}`
-        );
-        if (!response.ok) {
-          throw new Error(`${response.status}`);
-        }
-        const data = await response.json();
-        setResults(data.docs);
-        console.log("setResult:", results);
-      } catch (err) {
-        if (err instanceof Error) {
-          setError(`${err.message}`);
-        } else {
-          setError("something wrong");
-        }
-      } finally {
-        setLoading(false);
-      }
-    };
-    fetchData();
+    if (!query) return;
+    const url = `https://openlibrary.org/search.json?q=${query}`;
+
+    fetchData(url);
   };
 
   return (
@@ -65,7 +48,7 @@ const BookSearch: React.FC = () => {
       {error && <div className="text-red-600 text-center">Error: {error}</div>}
 
       <ul className="space-y-4">
-        {results.map((book) => (
+        {results && results.docs.map((book) => (
           <li key={book.key} className="bg-gray-50 p-4 rounded-md shadow-sm">
             <h3 className="text-xl font-semibold">{book.title}</h3>
             <p className="text-gray-600">{book.author_name?.join(", ")}</p>

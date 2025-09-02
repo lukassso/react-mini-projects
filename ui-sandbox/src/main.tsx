@@ -5,6 +5,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import MainLayout from "./layout/MainLayout.tsx";
 import App1 from "./pages/App1/App1.tsx";
 import App2 from "./pages/App2/App2.tsx";
+import App3 from './pages/App3/App3.tsx';
 import { Home } from "./pages/Home/Home.tsx";
 
 const router = createBrowserRouter([
@@ -23,6 +24,10 @@ const router = createBrowserRouter([
       {
         path: "app2",
         element: <App2 />,
+      },
+      {
+        path: "app3",
+        element: <App3 />,
       },
     ],
   },
