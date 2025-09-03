@@ -29,6 +29,13 @@ const MainLayout: React.FC = () => {
                 App two
               </NavLink>
             </li>
+             <li>
+              <NavLink
+                to="/app3"
+              >
+                App three
+              </NavLink>
+            </li>
           </ul>
         </nav>
       </header>
