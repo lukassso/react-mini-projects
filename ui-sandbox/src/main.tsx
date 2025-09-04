@@ -2,11 +2,12 @@ import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import "./index.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import MainLayout from "./layout/MainLayout.tsx";
-import App1 from "./pages/App1/App1.tsx";
-import App2 from "./pages/App2/App2.tsx";
-import App3 from './pages/App3/App3.tsx';
-import { Home } from "./pages/Home/Home.tsx";
+import MainLayout from "./layout/MainLayout";
+import App1 from "./pages/App1/App1";
+import App2 from "./pages/App2/App2";
+import App3 from './pages/App3/App3';
+import App4 from './pages/App4-ToDoList '
+import { Home } from "./pages/Home/Home";
 
 const router = createBrowserRouter([
   {
@@ -28,6 +29,10 @@ const router = createBrowserRouter([
       {
         path: "app3",
         element: <App3 />,
+      },
+      {
+        path: "app4",
+        element: <App4 />,
       },
     ],
   },
