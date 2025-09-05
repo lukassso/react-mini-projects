@@ -25,6 +25,9 @@ const MainLayout: React.FC = () => {
               <li>
               <NavLink to="/app5">App five - Album of images</NavLink>
             </li>
+            <li>
+              <NavLink to="/app6">App six - Crypto chart</NavLink>
+            </li>
           </ul>
         </nav>
       </header>
