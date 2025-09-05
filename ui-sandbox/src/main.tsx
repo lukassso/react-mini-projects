@@ -5,8 +5,9 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import MainLayout from "./layout/MainLayout";
 import App1 from "./pages/App1/App1";
 import App2 from "./pages/App2/App2";
-import App3 from './pages/App3/App3';
-import App4 from './pages/App4-ToDoList '
+import App3 from "./pages/App3/App3";
+import App4 from "./pages/App4-ToDoList";
+import App5 from "./pages/App5 - images";
 import { Home } from "./pages/Home/Home";
 
 const router = createBrowserRouter([
@@ -33,6 +34,10 @@ const router = createBrowserRouter([
       {
         path: "app4",
         element: <App4 />,
+      },
+      {
+        path: "app5",
+        element: <App5 />,
       },
     ],
   },
