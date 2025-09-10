@@ -12,6 +12,7 @@ import App6 from "./pages/App6-chart-data";
 import App7 from "./pages/App7-products";
 import App8 from "./pages/App8-Employee";
 import App9 from "./pages/App9-tabs";
+import App10 from "./pages/App10-user-directory";
 import { Home } from "./pages/Home/Home";
 
 const router = createBrowserRouter([
@@ -58,6 +59,10 @@ const router = createBrowserRouter([
       {
         path: "app9",
         element: <App9 />,
+      },
+      {
+        path: "app10",
+        element: <App10 />,
       },
     ],
   },

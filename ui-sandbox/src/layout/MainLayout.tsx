@@ -22,7 +22,7 @@ const MainLayout: React.FC = () => {
             <li>
               <NavLink to="/app4">App four - ToDoList</NavLink>
             </li>
-              <li>
+            <li>
               <NavLink to="/app5">App five - Album of images</NavLink>
             </li>
             <li>
@@ -32,10 +32,13 @@ const MainLayout: React.FC = () => {
               <NavLink to="/app7">App seven - Products</NavLink>
             </li>
             <li>
-              <NavLink to='/app8'>App eight - List of employees</NavLink>
+              <NavLink to="/app8">App eight - List of employees</NavLink>
             </li>
             <li>
-              <NavLink to='/app9'>App nine - Tabs</NavLink>
+              <NavLink to="/app9">App nine - Tabs</NavLink>
+            </li>
+            <li>
+              <NavLink to="/app10">App ten - User directory</NavLink>
             </li>
           </ul>
         </nav>
