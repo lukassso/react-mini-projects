@@ -14,6 +14,8 @@ import App8 from "./pages/App8-Employee";
 import App9 from "./pages/App9-tabs";
 import App10 from "./pages/App10-user-directory";
 import App11 from "./pages/App11-user-posts";
+import UserList from "./pages/App12-user-list-refactor/UserList";
+import UserDetails from "./pages/App12-user-list-refactor/UserDetails";
 import { Home } from "./pages/Home/Home";
 
 const router = createBrowserRouter([
@@ -66,9 +68,17 @@ const router = createBrowserRouter([
         element: <App10 />,
       },
       {
-        path: 'app11',
+        path: "app11",
         element: <App11 />,
-      }
+      },
+      {
+        path: "app12",
+        element: <UserList />,
+      },
+      {
+        path: "app12/:userId",
+        element: <UserDetails />,
+      },
     ],
   },
 ]);
