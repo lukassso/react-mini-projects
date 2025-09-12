@@ -44,7 +44,10 @@ const MainLayout: React.FC = () => {
               <NavLink to="/app11">App eleven - User posts</NavLink>
             </li>
             <li>
-              <NavLink to="/app12">App eleven - User posts refactor</NavLink>
+              <NavLink to="/app12">App twelve - User posts refactor</NavLink>
+            </li>
+             <li>
+              <NavLink to="/app13">App thirteen - Wikipedia articles </NavLink>
             </li>
           </ul>
         </nav>

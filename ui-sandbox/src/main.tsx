@@ -16,6 +16,7 @@ import App10 from "./pages/App10-user-directory";
 import App11 from "./pages/App11-user-posts";
 import UserList from "./pages/App12-user-list-refactor/UserList";
 import UserDetails from "./pages/App12-user-list-refactor/UserDetails";
+import App13 from "./pages/App13-wiki-viewer";
 import { Home } from "./pages/Home/Home";
 
 const router = createBrowserRouter([
@@ -78,6 +79,10 @@ const router = createBrowserRouter([
       {
         path: "app12/:userId",
         element: <UserDetails />,
+      },
+      {
+        path: "app13",
+        Component: App13,
       },
     ],
   },
