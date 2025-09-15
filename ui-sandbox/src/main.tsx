@@ -17,6 +17,7 @@ import App11 from "./pages/App11-user-posts";
 import UserList from "./pages/App12-user-list-refactor/UserList";
 import UserDetails from "./pages/App12-user-list-refactor/UserDetails";
 import App13 from "./pages/App13-wiki-viewer";
+import App14 from "./pages/App14-drag-and-drop-list";
 import { Home } from "./pages/Home/Home";
 
 const router = createBrowserRouter([
@@ -83,6 +84,10 @@ const router = createBrowserRouter([
       {
         path: "app13",
         Component: App13,
+      },
+      {
+        path: "app14",
+        Component: App14,
       },
     ],
   },
