@@ -54,6 +54,9 @@ const MainLayout: React.FC = () => {
                 App fourteen - Dragable list elements{" "}
               </NavLink>
             </li>
+            <li>
+              <NavLink to="/app15">App fiveteen - Star Rating</NavLink>
+            </li>
           </ul>
         </nav>
       </header>

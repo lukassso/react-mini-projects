@@ -1,0 +1,10 @@
+.star {
+  cursor: pointer;
+  font-size: 2.5rem;
+  color: #a0aec0;
+  transition: color 0.2s ease-in-out;
+}
+
+.star.star-rating {
+  color: #f59e0b;
+}
