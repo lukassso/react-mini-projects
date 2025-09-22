@@ -18,7 +18,8 @@ import UserList from "./pages/App12-user-list-refactor/UserList";
 import UserDetails from "./pages/App12-user-list-refactor/UserDetails";
 import App13 from "./pages/App13-wiki-viewer";
 import App14 from "./pages/App14-drag-and-drop-list";
-import App15 from './pages/App15-star-rating';
+import App15 from "./pages/App15-star-rating";
+import App16 from "./pages/App16-countdown-timer";
 import { Home } from "./pages/Home/Home";
 
 const router = createBrowserRouter([
@@ -91,9 +92,13 @@ const router = createBrowserRouter([
         Component: App14,
       },
       {
-        path: 'app15',
+        path: "app15",
         Component: App15,
-      }
+      },
+      {
+        path: "app16",
+        Component: App16,
+      },
     ],
   },
 ]);
